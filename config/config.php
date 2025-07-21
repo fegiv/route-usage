@@ -20,6 +20,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Exclude requests request if they result in an HTTP error code
+    |--------------------------------------------------------------------------
+    |
+    | Excludes logging routes if the HTTP reponse code is $status_code >= 400
+    | or less than 400. Default to not record errors as usage.
+    |
+    | The value must true or false.
+    |
+    */
+
+    'exclude_error_responses' => true,
+    
+    /*
+    |--------------------------------------------------------------------------
     | Specify date format
     |--------------------------------------------------------------------------
     |
