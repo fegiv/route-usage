@@ -31,9 +31,11 @@ class LogRouteUsage
             return false;
         }
 
-        $status_code = $event->response->getStatusCode();
-        if ($status_code >= 400 || $status_code < 200) {
-            return false;
+        if(config('route-usage.exclude_error_responses')) {
+            $status_code = $event->response->getStatusCode();
+            if ($status_code >= 400 || $status_code < 200) {
+                return false;    
+            }
         }
 
         $route = $event->request->route();
